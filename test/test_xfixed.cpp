@@ -305,8 +305,9 @@ namespace xt
     class FixedMember
     {
     public:
-        FixedMember(double foo)
+        FixedMember(size_t bar, double foo)
         {
+            m_bar = bar;
             m_foo = foo;
             m_I = xt::xtensor_fixed<double, xt::xshape<2, 2>>({{1.0, 0.0},
                                                                {0.0, 1.0}});
@@ -319,13 +320,14 @@ namespace xt
         }
 
     private:
+        size_t m_bar;
         double m_foo;
         xt::xtensor_fixed<double, xt::xshape<2, 2>> m_I;
     };
 
     TEST(xtensor_fixed, member)
     {
-        FixedMember c(1.2);
+        FixedMember c(20, 1.2);
         auto m = c.get();
         auto r = xt::xtensor_fixed<double, xt::xshape<2, 2>>({{2.0, 0.0},
                                                               {0.0, 2.0}});
