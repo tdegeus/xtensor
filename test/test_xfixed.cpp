@@ -319,11 +319,11 @@ namespace xt
 
     private:
         xt::xtensor_fixed<double, xt::xshape<2, 2>> m_I;
-    }
+    };
 
     TEST(xtensor_fixed, member)
     {
-        FixedMember c();
+        FixedMember c;
         auto m = c.get();
         auto r = xt::xtensor_fixed<double, xt::xshape<2, 2>>({{2.0, 0.0},
                                                               {0.0, 2.0}});
